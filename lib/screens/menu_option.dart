@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart'; 
-import 'perfil.dart';
+import 'package:flutter/services.dart';
 import 'panel_control.dart';
+import 'acerca_de.dart';
+import 'inicio.dart';
 
 class MenuOption extends StatelessWidget {
   const MenuOption({super.key});
@@ -9,9 +10,7 @@ class MenuOption extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text("Menú Lateral"),
-      ),
+      appBar: AppBar(title: const Text("Menú Lateral")),
       drawer: Drawer(
         child: ListView(
           padding: EdgeInsets.zero,
@@ -24,30 +23,20 @@ class MenuOption extends StatelessWidget {
               ),
             ),
             ListTile(
-              leading: const Icon(Icons.person),
-              title: const Text("Perfil"),
-              onTap: () {
-                Navigator.pop(context); // Cierra el drawer
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => const PerfilView()),
-                );
-              },
-            ),
-            ListTile(
               leading: const Icon(Icons.home),
               title: const Text("Inicio"),
               onTap: () {
-                Navigator.pop(context);
+                Navigator.pop(context); 
               },
             ),
             ListTile(
               leading: const Icon(Icons.settings),
               title: const Text("Panel de Control"),
               onTap: () {
+                Navigator.pop(context);
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => const PanelControl()), // 👈 abre Panel de Control
+                  MaterialPageRoute(builder: (context) => const PanelControl()),
                 );
               },
             ),
@@ -55,7 +44,11 @@ class MenuOption extends StatelessWidget {
               leading: const Icon(Icons.info),
               title: const Text("Acerca de"),
               onTap: () {
-                Navigator.pop(context);
+                Navigator.pop(context); 
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const AcercaDeView()),
+                );
               },
             ),
             ListTile(
@@ -69,18 +62,13 @@ class MenuOption extends StatelessWidget {
               leading: const Icon(Icons.exit_to_app),
               title: const Text("Salir"),
               onTap: () {
-                SystemNavigator.pop(); 
+                SystemNavigator.pop();
               },
             ),
           ],
         ),
       ),
-      body: const Center(
-        child: Text(
-          "Pantalla principal (Inicio)",
-          style: TextStyle(fontSize: 18),
-        ),
-      ),
+      body: const InicioView(),
     );
   }
 }

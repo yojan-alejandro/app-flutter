@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import '../widgets/info_card.dart';
-import '../widgets/profile_img.dart';
 
 class DatosPersonales extends StatelessWidget {
   const DatosPersonales({super.key});
@@ -11,44 +9,87 @@ class DatosPersonales extends StatelessWidget {
       appBar: AppBar(
         title: const Text("Datos Personales"),
       ),
-      body: SingleChildScrollView(
-        padding: const EdgeInsets.all(16),
-        child: Column(
-          children: [
-            const Center(
-              child: ProfileImage(
-                imageUrl: "https://i.pravatar.cc/300?img=5",
-                radius: 70,
-              ),
-            ),
-            const SizedBox(height: 20),
+      body: Center(
+        child: Card(
+          elevation: 6,
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(16),
+          ),
+          margin: const EdgeInsets.all(20),
+          child: Padding(
+            padding: const EdgeInsets.all(20),
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                const CircleAvatar(
+                  radius: 60,
+                  backgroundImage: NetworkImage(
+                    "https://i.pravatar.cc/150?img=5",
+                  ),
+                ),
+                const SizedBox(height: 16),
 
-            const InfoCard(
-              title: "Nombres",
-              value: "Juan Carlos",
-              icon: Icons.person,
+                // Nombre completo
+                const Text(
+                  "Juan Carlos Pérez Gómez",
+                  style: TextStyle(
+                    fontSize: 22,
+                    fontWeight: FontWeight.bold,
+                  ),
+                  textAlign: TextAlign.center,
+                ),
+
+                const Text(
+                  "Desarrollador Backend",
+                  style: TextStyle(
+                    fontSize: 16,
+                    color: Colors.grey,
+                  ),
+                ),
+
+                const SizedBox(height: 16),
+
+                const Text(
+                  "Apasionado por el desarrollo de software, con experiencia en Python, Flask y MongoDB. "
+                  "Interesado en proyectos de innovación tecnológica.",
+                  style: TextStyle(fontSize: 14),
+                  textAlign: TextAlign.center,
+                ),
+
+                const Divider(height: 30, thickness: 1),
+
+                Column(
+                  children: const [
+                    ListTile(
+                      leading: Icon(Icons.person, color: Colors.blue),
+                      title: Text("Juan Carlos"),
+                      subtitle: Text("Nombre"),
+                    ),
+                    ListTile(
+                      leading: Icon(Icons.badge, color: Colors.blue),
+                      title: Text("Pérez Gómez"),
+                      subtitle: Text("Apellidos"),
+                    ),
+                    ListTile(
+                      leading: Icon(Icons.home, color: Colors.blue),
+                      title: Text("Calle 123 #45-67"),
+                      subtitle: Text("Dirección"),
+                    ),
+                    ListTile(
+                      leading: Icon(Icons.phone, color: Colors.blue),
+                      title: Text("+57 300 123 4567"),
+                      subtitle: Text("Teléfono"),
+                    ),
+                    ListTile(
+                      leading: Icon(Icons.email, color: Colors.blue),
+                      title: Text("juan@mail.com"),
+                      subtitle: Text("Correo"),
+                    ),
+                  ],
+                ),
+              ],
             ),
-            const InfoCard(
-              title: "Apellidos",
-              value: "Pérez Gómez",
-              icon: Icons.badge,
-            ),
-            const InfoCard(
-              title: "Dirección",
-              value: "Calle 123 #45-67",
-              icon: Icons.home,
-            ),
-            const InfoCard(
-              title: "Teléfono",
-              value: "300 123 4567",
-              icon: Icons.phone,
-            ),
-            const InfoCard(
-              title: "Email",
-              value: "juan@mail.com",
-              icon: Icons.email,
-            ),
-          ],
+          ),
         ),
       ),
     );

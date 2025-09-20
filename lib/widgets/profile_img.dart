@@ -7,7 +7,7 @@ class ProfileImage extends StatelessWidget {
   const ProfileImage({
     super.key,
     this.radius = 60,
-    this.imageUrl = "https://i.pravatar.cc/300", // 👈 URL por defecto
+    this.imageUrl = "https://i.pravatar.cc/300", 
   });
 
   @override

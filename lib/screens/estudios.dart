@@ -4,7 +4,6 @@ import '../widgets/info_card.dart';
 class Estudios extends StatelessWidget {
   const Estudios({super.key});
 
-  // 👇 Datos simulados (List<Map>)
   final List<Map<String, String>> bachiller = const [
     {"titulo": "Bachiller Académico", "institucion": "Colegio Nacional", "anio": "2015"},
   ];
@@ -25,7 +24,6 @@ class Estudios extends StatelessWidget {
     {"titulo": "Bases de Datos con PostgreSQL", "institucion": "SENA", "anio": "2021"},
   ];
 
-  // 👇 Método para construir secciones
   Widget buildSection(String title, List<Map<String, String>> data) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
